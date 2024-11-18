@@ -75,7 +75,7 @@ After reading the task requirements, you should be able to identify the classes,
 
 | Class Name | Attributes                                | Methods                                            |
 | ---------- |-------------------------------------------|----------------------------------------------------|
-| `CarPark`    | Available bays, empty/full, fee, location | update_available_bays,  update_fee                 |
+| `CarPark`    | Available bays, empty/full, fee, location | update_available_bays,  update_feegi               |
 | `Sensor`     | Temperature,  number_plates               | scan_plate, update_temperature                     |
 | `Display`    | information, community_message            | update_information, update_message, delete_message |
 
@@ -105,9 +105,9 @@ Ensure you have completed the previous table and include at least two methods an
 **Additional evidencing:**
 Include a screenshot of your GitHub repository `src/` directory **after** you have pushed your changes.
 
-```markdown
-![Added stubs for classes](images/stubs-for-classes.png)
-```
+
+![Added stubs for classes](documentation/screenshots/initial_base_classes.PNG)
+
 
 ### Add constructors and attributes to the classes
 
