@@ -20,4 +20,4 @@ class CarPark:
             self.sensors.append(component)
 
         elif isinstance(component, Display):
-            self.displys.append(component)
+            self.displays.append(component)
