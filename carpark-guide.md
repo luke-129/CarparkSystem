@@ -447,26 +447,26 @@ This time, we will push the tag to the remote repository:
 
 Add a screenshot of the GitHub repository after pushing the tag, showing the CarPark class with the new methods:
 
-```markdown
-![Added methods to the car park class](images/methods-to-car-park.png)
-```
+
+![Added methods to the car park class](documentation/screenshots/methods-to-car-park.PNG)
+
 
 Answer the following questions:
 > **Review Questions**
 >
 > 1. **Which class is responsible for each of the following pieces of information (and why)?**
 >    - _The number of available bays_
->      `Answer here...`
+>      `the carpark as it is the class that has the capacity attribute and the available_bays method`
 >    - _The current temperature_
->      `Answer here...`
+>      `The car park handles the temperature in the update_displays method and passes it to the display object. So the car park is reponsible for passing the information and the display is responsible for recieving and displaying that information.`
 >    - _The time_
->      `Answer here...`
+>      `The car park can handle the time now in the data dictionary, it would be useful to display the time per carpark as they might be in different timezones. So the carpark will past the time to the display object. `
 >
 > 2. **What is the difference between an attribute and a property?**
->    `Answer here...`
+>    `An attribute is a variable of an instance of a class, where a property is a method marked with the @property decorator which is accessed rather than called like a traditonal method. `
 >
 > 3. **Why do you think we used a dictionary to hold the data we passed the display? List at least one advantage and one disadvantage of this approach.**
->    `Answer here...`
+>    `It is easier to access data by using a key, making it faster and more efficient in comparison to a list where you would have to know the index or iterate over it to find the correct data. However, you can only store immutable types within a dictonary so if we tried to store displays, plates or sensors we wouldn't be able to as they are lists. `
 
 #### Add a detect vehicle method to the Sensor class
 
