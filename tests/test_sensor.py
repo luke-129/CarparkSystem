@@ -6,9 +6,9 @@ import unittest
 class TestSensor(unittest.TestCase):
     def setUp(self):
         self.car_park = CarPark()
-        self.car_park_2 = CarPark()
+        self.entry_sensor = EntrySensor(2, False, self.car_park)
         self.exit_sensor = ExitSensor(1, False, self.car_park)
-        self.entry_sensor = EntrySensor(2, False, self.car_park_2)
+
 
     def test_sensor_initialized_attributes(self):
         self.assertIsInstance(self.entry_sensor, Sensor)
@@ -22,7 +22,9 @@ class TestSensor(unittest.TestCase):
 
 
     def test_detect_vehicle_method(self):
+        # Test the plate has been scanned.
         self.entry_sensor.detect_vehicle()
+        self.assertTrue(len(self.car_park.plates) == 1)
+        # Test the plate has been deleted on car exit
         self.exit_sensor.detect_vehicle()
         self.assertTrue(len(self.car_park.plates) == 0)
-        self.assertTrue(len(self.car_park_2.plates) == 0)

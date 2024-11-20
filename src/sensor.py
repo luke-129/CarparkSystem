@@ -16,11 +16,10 @@ class Sensor(ABC):
         pass
 
     def _scan_plate(self):
-        return format(random.randrange(1000), "4oig")
+        return random.randrange(1000)
 
     def detect_vehicle(self):
-        self._scan_plate()
-        self.update_car_park()
+        self.update_car_park(self._scan_plate())
 
 
 class EntrySensor(Sensor):
