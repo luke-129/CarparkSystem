@@ -20,3 +20,9 @@ class TestSensor(unittest.TestCase):
         self.assertIsInstance(self.entry_sensor.car_park, CarPark)
         self.assertIsInstance(self.exit_sensor.car_park, CarPark)
 
+
+    def test_detect_vehicle_method(self):
+        self.entry_sensor.detect_vehicle()
+        self.exit_sensor.detect_vehicle()
+        self.assertTrue(len(self.car_park.plates) == 0)
+        self.assertTrue(len(self.car_park_2.plates) == 0)
