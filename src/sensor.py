@@ -24,12 +24,14 @@ class Sensor(ABC):
 
 
 class EntrySensor(Sensor):
+
     def update_car_park(self, plate):
         self.car_park.add_car(plate)
         print(f"Vehicle detected with plate number {plate}")
 
 
 class ExitSensor(Sensor):
+
     def update_car_park(self, plate):
         self.car_park.remove_car(plate)
         print(f"Outgoing vehicle detected with plate number {plate}")
