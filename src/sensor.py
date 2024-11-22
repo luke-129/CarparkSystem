@@ -16,7 +16,8 @@ class Sensor(ABC):
         pass
 
     def _scan_plate(self):
-        return random.randrange(1000)
+        return "PLATE-" + str(random.randrange(1000))
+
 
     def detect_vehicle(self):
         self.update_car_park(self._scan_plate())
@@ -29,7 +30,7 @@ class EntrySensor(Sensor):
 
     def update_car_park(self, plate):
         self.car_park.add_car(plate)
-        print(f"Incoming vehicle detected with plate number {plate}")
+        print(f"Incoming vehicle detected with plate: {plate}")
 
 
 class ExitSensor(Sensor):
@@ -39,7 +40,7 @@ class ExitSensor(Sensor):
 
     def update_car_park(self, plate):
         self.car_park.remove_car(plate)
-        print(f"Outgoing vehicle detected with plate number {plate}")
+        print(f"Outgoing vehicle detected with plate: {plate}")
 
     def _scan_plate(self):
         return random.choice(self.car_park.plates)
