@@ -82,9 +82,15 @@ class TestCarPark(unittest.TestCase):
         self.assertIn("exited", last_line)  # check description
         self.assertIn("\n", last_line)  # check entry has a new line
 
-    def test_initialize_with_config(self):
-        new_carpark = CarPark("some random place", 5, config_file=self.config_file)
-        self.assertEqual(self.config_file, new_carpark.config_file)
+    def test_car_park_initialized_with_config(self):
+        c = CarPark.from_config()
+        # Check the object initialized correctly
+        self.assertIsNotNone(c, "Object not initialized")
+
+        # Check values correctly assigned from config
+        self.assertEqual(c.location, "config street")
+        self.assertEqual(c.capacity, 100)
+        self.assertEqual(c.log_file, Path("log.txt"))
 
 
 if __name__ == "__main__":
