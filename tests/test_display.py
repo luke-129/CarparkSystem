@@ -2,7 +2,8 @@ import unittest
 from display import Display
 from car_park import CarPark
 
-class TestDsiplay(unittest.TestCase):
+
+class TestDisplay(unittest.TestCase):
     def setUp(self):
         self.car_park = CarPark()
         self.display = Display(1, "Welcome to the car park", True, self.car_park)

@@ -9,7 +9,6 @@ class TestSensor(unittest.TestCase):
         self.entry_sensor = EntrySensor(2, False, self.car_park)
         self.exit_sensor = ExitSensor(1, False, self.car_park)
 
-
     def test_sensor_initialized_attributes(self):
         self.assertIsInstance(self.entry_sensor, Sensor)
         self.assertIsInstance(self.exit_sensor, Sensor)
@@ -19,7 +18,6 @@ class TestSensor(unittest.TestCase):
         self.assertEqual(self.entry_sensor.is_active, False)
         self.assertIsInstance(self.entry_sensor.car_park, CarPark)
         self.assertIsInstance(self.exit_sensor.car_park, CarPark)
-
 
     def test_detect_vehicle_method(self):
         # Test the plate has been scanned.

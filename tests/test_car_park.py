@@ -22,26 +22,26 @@ class TestCarPark(unittest.TestCase):
         self.assertEqual(self.car_park.log_file, Path("log.txt"))
 
     def test_add_car(self):
-        self.car_park.add_car("FAKE-001")
-        self.assertEqual(self.car_park.plates, ["FAKE-001"])
+        self.car_park.add_car("PLATE-001")
+        self.assertEqual(self.car_park.plates, ["PLATE-001"])
         self.assertEqual(self.car_park.available_bays, 99)
 
     def test_remove_car(self):
-        self.car_park.add_car("FAKE-001")
-        self.car_park.remove_car("FAKE-001")
+        self.car_park.add_car("PLATE-001")
+        self.car_park.remove_car("PLATE-001")
         self.assertEqual(self.car_park.plates, [])
         self.assertEqual(self.car_park.available_bays, 100)
 
     def test_overfill_the_car_park(self):
         for i in range(100):
-            self.car_park.add_car(f"FAKE-{i}")
+            self.car_park.add_car(f"PLATE-{i}")
         self.assertEqual(self.car_park.available_bays, 0)
-        self.car_park.add_car("FAKE-100")
+        self.car_park.add_car("PLATE-100")
         # Overfilling the car park should not change the number of available bays
         self.assertEqual(self.car_park.available_bays, 0)
 
         # Removing a car from an overfilled car park should not change the number of available bays
-        self.car_park.remove_car("FAKE-100")
+        self.car_park.remove_car("PLATE-100")
         self.assertEqual(self.car_park.available_bays, 0)
 
     def test_removing_a_car_that_does_not_exist(self):
@@ -85,6 +85,7 @@ class TestCarPark(unittest.TestCase):
     def test_initialize_with_config(self):
         new_carpark = CarPark("some random place", 5, config_file=self.config_file)
         self.assertEqual(self.config_file, new_carpark.config_file)
+
 
 if __name__ == "__main__":
     unittest.main()

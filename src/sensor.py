@@ -18,7 +18,6 @@ class Sensor(ABC):
     def _scan_plate(self):
         return "PLATE-" + str(random.randrange(1000))
 
-
     def detect_vehicle(self):
         self.update_car_park(self._scan_plate())
 

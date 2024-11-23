@@ -4,6 +4,7 @@ from pathlib import Path
 from datetime import datetime
 import json
 
+
 class CarPark:
     def __init__(self, location="Unknown", capacity=0, plates=None, sensors=None, displays=None, log_file=Path("log.txt"), config_file=Path("config.json")):
         self.location = location
@@ -54,13 +55,11 @@ class CarPark:
         else:
             return self.capacity - len(self.plates)
 
-
     def write_config(self):
         with open(self.config_file, "w") as f:
             json.dump({"location": self.location,
                        "capacity": self.capacity,
                        "log_file": str(self.log_file)}, f)
-
 
     @classmethod
     def from_config(cls, config_file=Path("config.json")):
